@@ -23,7 +23,6 @@ export const SOCIALS = [
   { id: 'youtube', label: 'YouTube', href: 'https://www.youtube.com/@Mankeezy' },
   { id: 'mixcloud', label: 'Mixcloud', href: 'https://www.mixcloud.com/mankap/' },
   { id: 'linkedin', label: 'LinkedIn', href: 'https://za.linkedin.com/in/manace-kapinga-1941441a7' },
-  { id: 'web', label: 'Portfolio', href: 'https://manacekapinga.co.za' },
 ] as const;
 
 export interface Release {
