@@ -59,12 +59,9 @@ export default function RsvpForm() {
   }
 
   return (
-    <form className="card" onSubmit={onSubmit}>
-      <p className="hero-sub" style={{ marginBottom: '1rem' }}>Exclusive invite</p>
-      <h2 style={{ fontWeight: 400, fontSize: '1.75rem', margin: '0 0 0.5rem' }}>RSVP</h2>
-      <p className="note" style={{ marginBottom: '1.25rem' }}>
-        {EVENT.partyDate} · {EVENT.venue}, {EVENT.suburb}
-      </p>
+    <form className="card rsvp-card" onSubmit={onSubmit}>
+      <h2 className="rsvp-title">RSVP</h2>
+      <p className="note rsvp-sub">Confirm your spot. You'll get the address by email.</p>
 
       {error && <p className="error">{error}</p>}
 
