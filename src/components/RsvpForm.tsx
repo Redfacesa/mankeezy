@@ -2,11 +2,13 @@ import { FormEvent, useState } from 'react';
 import { submitRsvp, EVENT, type ContributionType } from '../lib/api';
 
 const CONTRIBUTIONS: { id: ContributionType; label: string; hint: string }[] = [
-  { id: 'pay', label: 'Contribute R100+', hint: 'Pay via RedFace Pay' },
+  { id: 'pay', label: 'Pay via RedFace Pay', hint: 'Choose your amount below (from R100)' },
   { id: 'drinks', label: 'Bring drinks', hint: 'Coolers welcome' },
   { id: 'food', label: 'Bring food', hint: 'Salads, sides, snacks' },
   { id: 'gift', label: 'Bring a gift', hint: 'For the birthday braai' },
 ];
+
+const AMOUNT_PRESETS = [100, 200, 500, 1000, 2000] as const;
 
 export default function RsvpForm() {
   const [name, setName] = useState('');
@@ -15,11 +17,17 @@ export default function RsvpForm() {
   const [attending, setAttending] = useState(true);
   const [guestCount, setGuestCount] = useState(1);
   const [contribution, setContribution] = useState<ContributionType>('pay');
-  const [amount, setAmount] = useState(EVENT.minContribution);
+  const [amountPreset, setAmountPreset] = useState<number | 'custom'>(100);
+  const [customAmount, setCustomAmount] = useState('');
   const [note, setNote] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [done, setDone] = useState(false);
+
+  const amount =
+    amountPreset === 'custom'
+      ? Math.max(EVENT.minContribution, Number(customAmount) || EVENT.minContribution)
+      : amountPreset;
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -112,16 +120,47 @@ export default function RsvpForm() {
 
           {contribution === 'pay' && (
             <>
-              <label className="label" htmlFor="amount">Amount (ZAR, min R{EVENT.minContribution})</label>
-              <input
-                id="amount"
-                type="number"
-                min={EVENT.minContribution}
-                step={50}
-                className="field"
-                value={amount}
-                onChange={(e) => setAmount(Math.max(EVENT.minContribution, Number(e.target.value)))}
-              />
+              <label className="label">Choose amount (from R{EVENT.minContribution})</label>
+              <div className="chip-row amount-presets">
+                {AMOUNT_PRESETS.map((preset) => (
+                  <button
+                    key={preset}
+                    type="button"
+                    className={`chip chip-amount ${amountPreset === preset ? 'active' : ''}`}
+                    onClick={() => setAmountPreset(preset)}
+                  >
+                    R{preset}
+                  </button>
+                ))}
+                <button
+                  type="button"
+                  className={`chip chip-amount ${amountPreset === 'custom' ? 'active' : ''}`}
+                  onClick={() => setAmountPreset('custom')}
+                >
+                  Other
+                </button>
+              </div>
+              {amountPreset === 'custom' && (
+                <>
+                  <label className="label" htmlFor="custom-amount">Custom amount (ZAR)</label>
+                  <input
+                    id="custom-amount"
+                    type="number"
+                    min={EVENT.minContribution}
+                    step={50}
+                    className="field"
+                    placeholder={`Min R${EVENT.minContribution}`}
+                    value={customAmount}
+                    onChange={(e) => setCustomAmount(e.target.value)}
+                    required
+                  />
+                </>
+              )}
+              {amountPreset !== 'custom' && (
+                <p className="note" style={{ marginTop: '-0.25rem' }}>
+                  You selected <strong>R{amount}</strong>. Tap another amount or choose Other.
+                </p>
+              )}
             </>
           )}
 
@@ -135,7 +174,7 @@ export default function RsvpForm() {
       )}
 
       <button type="submit" className="btn" disabled={loading} style={{ width: '100%' }}>
-        {loading ? 'Sending…' : attending && contribution === 'pay' ? 'RSVP & pay' : 'Confirm RSVP'}
+        {loading ? 'Sending…' : attending && contribution === 'pay' ? `RSVP & pay R${amount}` : 'Confirm RSVP'}
       </button>
 
       <p className="note" style={{ marginTop: '1rem', marginBottom: 0, fontSize: '0.8rem' }}>

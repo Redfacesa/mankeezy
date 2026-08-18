@@ -18,7 +18,7 @@ export default function InviteSection() {
           <p className="invite-lead">
             Drop your details below. We email you the full address at{' '}
             <strong>12 Eagle Rock Crescent</strong>. Contribute from{' '}
-            <strong>R{EVENT.minContribution}</strong> via RedFace Pay, or bring drinks, food, or a gift.
+            <strong>R{EVENT.minContribution} and up</strong> via RedFace Pay, or bring drinks, food, or a gift.
           </p>
 
           <div className="invite-details card invite-details-glow">

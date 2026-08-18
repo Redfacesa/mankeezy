@@ -523,6 +523,13 @@ textarea {
   border-color: #fff;
 }
 
+.amount-presets .chip-amount {
+  min-width: 4.25rem;
+  justify-content: center;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
 .note {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.55);
