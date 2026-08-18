@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import { submitRsvp, EVENT, type ContributionType } from '../lib/api';
 
 const CONTRIBUTIONS: { id: ContributionType; label: string; hint: string }[] = [
-  { id: 'pay', label: 'Pay via RedFace Pay', hint: 'Choose your amount below (from R100)' },
+  { id: 'pay', label: 'Pay via RedFace Pay', hint: 'Pick a preset or enter your own amount' },
   { id: 'drinks', label: 'Bring drinks', hint: 'Coolers welcome' },
   { id: 'food', label: 'Bring food', hint: 'Salads, sides, snacks' },
   { id: 'gift', label: 'Bring a gift', hint: 'For the birthday braai' },
@@ -120,7 +120,7 @@ export default function RsvpForm() {
 
           {contribution === 'pay' && (
             <>
-              <label className="label">Choose amount (from R{EVENT.minContribution})</label>
+              <label className="label">Choose your contribution</label>
               <div className="chip-row amount-presets">
                 {AMOUNT_PRESETS.map((preset) => (
                   <button
