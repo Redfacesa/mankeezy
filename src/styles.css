@@ -97,6 +97,10 @@ textarea {
   color: #fff;
 }
 
+.site-nav-link-hot {
+  color: #ffd700;
+}
+
 /* Hero */
 .hero {
   padding: clamp(2rem, 6vw, 4rem) 0 clamp(2.5rem, 5vw, 3.5rem);
@@ -566,8 +570,372 @@ textarea {
 .badge-pending { color: #f0c674; }
 .badge-na { color: rgba(255, 255, 255, 0.35); }
 
+/* ── Birthday hero + fireworks ── */
+.birthday-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 20%, #1a1208 0%, #050505 55%, #050505 100%);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+.fireworks-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.confetti-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  top: -10%;
+  left: calc((var(--i) * 4.2%) + 1%);
+  width: 8px;
+  height: 14px;
+  background: hsl(calc(var(--i) * 14), 85%, 58%);
+  opacity: 0.75;
+  animation: confetti-fall calc(4s + (var(--i) * 0.15s)) linear infinite;
+  animation-delay: calc(var(--i) * -0.25s);
+  transform: rotate(45deg);
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.9; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0.2; }
+}
+
+.birthday-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 5rem 1.25rem 4rem;
+  max-width: 720px;
+}
+
+.birthday-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #ffd700;
+}
+
+.birthday-age {
+  margin: 0;
+  line-height: 0.85;
+}
+
+.birthday-age-num {
+  display: inline-block;
+  font-size: clamp(5rem, 22vw, 11rem);
+  background: linear-gradient(180deg, #fff 0%, #ffd700 45%, #c9a227 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: birthday-glow 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.35));
+}
+
+@keyframes birthday-glow {
+  0%, 100% { filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.25)); }
+  50% { filter: drop-shadow(0 0 55px rgba(255, 215, 0, 0.55)); }
+}
+
+.birthday-name {
+  margin: 0.25rem 0 0;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.birthday-tag {
+  margin: 0.75rem 0 1.5rem;
+}
+
+.birthday-cta-block {
+  background: rgba(13, 13, 13, 0.75);
+  border: 1px solid rgba(255, 215, 0, 0.22);
+  padding: 1.5rem 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.birthday-hook {
+  margin: 0 0 1.25rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.birthday-hook strong {
+  color: #ffd700;
+}
+
+.birthday-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.birthday-fine {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #ffd700 0%, #e8b923 100%);
+  color: #1a1000;
+  font-weight: 600;
+}
+
+.btn-xl {
+  min-height: 56px;
+  padding: 1rem 2rem;
+  font-size: 0.85rem;
+}
+
+.pulse-cta {
+  animation: pulse-gold 2s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.45);
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.35); }
+  50% { box-shadow: 0 0 0 12px rgba(255, 215, 0, 0); }
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── Braai RSVP hot section ── */
+.invite-section-hot {
+  padding-top: 0;
+  border-bottom: none;
+}
+
+.invite-banner {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+  background: linear-gradient(180deg, rgba(255, 75, 75, 0.12) 0%, transparent 100%);
+  border-bottom: 1px solid rgba(255, 75, 75, 0.2);
+  margin: 0 calc(-1 * clamp(1rem, 4vw, 2rem)) 2rem;
+}
+
+.invite-banner-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 107, 107, 0.4);
+  padding: 0.3rem 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.invite-banner-title {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 400;
+}
+
+.invite-banner-sub {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.invite-details-glow {
+  border-color: rgba(255, 215, 0, 0.15);
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.06);
+}
+
+.rsvp-card {
+  border-color: rgba(255, 215, 0, 0.2);
+}
+
+/* ── Music videos ── */
+.videos-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(108, 92, 231, 0.06) 50%, transparent 100%);
+}
+
+.video-scroll {
+  display: flex;
+  gap: 0.85rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.video-card {
+  flex: 0 0 200px;
+  scroll-snap-align: start;
+  min-height: 140px;
+  padding: 1.25rem 1rem;
+  background: linear-gradient(145deg, #141414 0%, #0a0a0a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 75, 75, 0.45);
+}
+
+.video-card-channel {
+  border-color: rgba(255, 215, 0, 0.25);
+  background: linear-gradient(145deg, #1a1508 0%, #0a0a0a 100%);
+}
+
+.video-card-play {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  margin-bottom: auto;
+  color: #ff4b4b;
+}
+
+.video-card-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.video-card-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ── Visual discography ── */
+.catalog-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 184, 148, 0.04) 100%);
+}
+
+.release-grid-visual {
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.release-card-visual {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.release-card-visual:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--accent, #fff);
+}
+
+.release-card-visual.release-card-featured {
+  grid-column: span 2;
+}
+
+@media (min-width: 700px) {
+  .release-card-visual.release-card-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+.release-art {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #111;
+}
+
+.release-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s;
+}
+
+.release-card-visual:hover .release-art img {
+  transform: scale(1.06);
+}
+
+.release-art-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: var(--accent, #333);
+  color: #050505;
+  font-weight: 700;
+}
+
+.release-meta {
+  padding: 0.75rem 0.85rem 1rem;
+  position: relative;
+}
+
+.release-card-visual .release-type {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.release-card-visual .release-title {
+  font-size: 0.95rem;
+}
+
+.release-card-visual .release-badge {
+  top: auto;
+  bottom: 0.85rem;
+  background: #ffd700;
+  color: #050505;
+  border: none;
+  font-weight: 600;
+}
+
 @media (max-width: 599px) {
   .site-nav-links {
     display: none;
+  }
+
+  .release-card-visual.release-card-featured {
+    grid-column: span 2;
   }
 }

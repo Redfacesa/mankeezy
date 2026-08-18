@@ -1,7 +1,9 @@
 import SiteNav from '../components/SiteNav';
-import HeroSection from '../components/HeroSection';
-import DiscographyGrid from '../components/DiscographyGrid';
+import BirthdayHero from '../components/BirthdayHero';
 import InviteSection from '../components/InviteSection';
+import MusicVideosSection from '../components/MusicVideosSection';
+import DiscographyGrid from '../components/DiscographyGrid';
+import HeroSection from '../components/HeroSection';
 import StreamRow from '../components/StreamRow';
 import SiteFooter from '../components/SiteFooter';
 
@@ -9,13 +11,17 @@ export default function HomePage() {
   return (
     <div className="page">
       <SiteNav />
-      <main className="main">
-        <HeroSection />
-        <DiscographyGrid />
-        <InviteSection />
-        <section className="section section-connect">
-          <StreamRow />
-        </section>
+      <main>
+        <BirthdayHero />
+        <div className="main">
+          <InviteSection />
+          <MusicVideosSection />
+          <DiscographyGrid />
+          <HeroSection />
+          <section className="section section-connect">
+            <StreamRow />
+          </section>
+        </div>
       </main>
       <SiteFooter />
     </div>

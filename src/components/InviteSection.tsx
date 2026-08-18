@@ -3,17 +3,25 @@ import { EVENT } from '../lib/api';
 
 export default function InviteSection() {
   return (
-    <section id="braai" className="section invite-section">
+    <section id="braai" className="section invite-section invite-section-hot">
+      <div className="invite-banner">
+        <span className="invite-banner-tag">Exclusive · Limited spots</span>
+        <h2 className="invite-banner-title">Birthday braai RSVP</h2>
+        <p className="invite-banner-sub">
+          Saturday 23 August · Bernardino Heights · Friends and family only
+        </p>
+      </div>
+
       <div className="invite-grid">
         <div className="invite-copy">
-          <p className="section-eyebrow">Exclusive invite</p>
-          <h2 className="section-title">Saturday braai</h2>
-          <p className="note invite-lead">
-            Family and friends only. Album launch week, turning 28, and a private braai
-            to celebrate together.
+          <p className="section-eyebrow">Get your invite</p>
+          <p className="invite-lead">
+            Drop your details below. We email you the full address at{' '}
+            <strong>12 Eagle Rock Crescent</strong>. Contribute from{' '}
+            <strong>R{EVENT.minContribution}</strong> via RedFace Pay, or bring drinks, food, or a gift.
           </p>
 
-          <div className="invite-details card">
+          <div className="invite-details card invite-details-glow">
             <div className="invite-detail-row">
               <span className="label">When</span>
               <p>{EVENT.partyDate}</p>
@@ -27,10 +35,8 @@ export default function InviteSection() {
               </p>
             </div>
             <div className="invite-detail-row">
-              <span className="label">Contribution</span>
-              <p>
-                R{EVENT.minContribution}+ via RedFace Pay, or bring drinks, food, or a gift.
-              </p>
+              <span className="label">Album drop</span>
+              <p>{EVENT.albumDrop} · <strong>28</strong> out everywhere</p>
             </div>
           </div>
 
