@@ -78,6 +78,18 @@ textarea {
   letter-spacing: 0.02em;
 }
 
+.site-nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-nav-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
 .site-nav-links {
   display: flex;
   flex-wrap: wrap;
