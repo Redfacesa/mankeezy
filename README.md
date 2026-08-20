@@ -23,7 +23,7 @@ npm run dev
 
 ## Admin
 
-Guest list: `/admin` (RedFace Pay admin sign-in required)
+Guest list: `/admin` (Mankeezy admin sign-in)
 
 ## Deploy (Vercel)
 
@@ -41,7 +41,7 @@ Guest list: `/admin` (RedFace Pay admin sign-in required)
 
 ## Admin
 
-Guest list: **`/admin`** — sign in with RedFace Pay admin (`info@redfacepay.co.za` or `mankapmankeezy@gmail.com`).
+Guest list: **`/admin`** — sign in with a Mankeezy admin account.
 
 ## Event
 

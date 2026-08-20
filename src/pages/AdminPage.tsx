@@ -63,7 +63,7 @@ export default function AdminPage() {
     <div className="page" style={{ padding: '2rem 1.25rem', maxWidth: 1100, margin: '0 auto' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
-          <p className="hero-sub">RedFace Pay admin</p>
+          <p className="hero-sub">Mankeezy admin</p>
           <h1 style={{ fontWeight: 400, fontSize: '1.75rem', margin: 0 }}>Mankeezy guest list</h1>
         </div>
         <Link to="/" className="btn btn-ghost" style={{ textDecoration: 'none' }}>Site</Link>
@@ -71,7 +71,7 @@ export default function AdminPage() {
 
       {!token ? (
         <form className="card" style={{ maxWidth: 400, marginTop: '2rem' }} onSubmit={signIn}>
-          <p className="note" style={{ marginBottom: '1rem' }}>Sign in with your RedFace Pay admin account.</p>
+          <p className="note" style={{ marginBottom: '1rem' }}>Sign in to manage the Mankeezy guest list.</p>
           {error && <p className="error">{error}</p>}
           <label className="label" htmlFor="admin-email">Email</label>
           <input id="admin-email" type="email" className="field" required value={email} onChange={(e) => setEmail(e.target.value)} />

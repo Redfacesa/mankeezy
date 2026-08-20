@@ -1,4 +1,21 @@
-export const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://bpzzgilwlkghgfkvkkxx.supabase.co';
+const SUPABASE_PROJECT_URL = 'https://bpzzgilwlkghgfkvkkxx.supabase.co';
+const configuredSupabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+
+function isProjectSupabaseUrl(url: string | undefined) {
+  try {
+    return new URL(url ?? '').origin === SUPABASE_PROJECT_URL;
+  } catch {
+    return false;
+  }
+}
+
+// Authentication and RSVP data belong to this Supabase project. Restrict the
+// optional build-time URL to this project so an unrelated Vercel URL cannot
+// receive sign-in requests.
+export const SUPABASE_URL =
+  isProjectSupabaseUrl(configuredSupabaseUrl)
+    ? configuredSupabaseUrl ?? SUPABASE_PROJECT_URL
+    : SUPABASE_PROJECT_URL;
 export const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
 export const EVENT = {
