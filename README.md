@@ -46,5 +46,5 @@ Guest list: **`/admin`** — sign in with RedFace Pay admin (`info@redfacepay.co
 ## Event
 
 - Album **28** · 18 August 2026
-- Braai · Saturday 23 August 2026
+- Braai · Saturday 22 August 2026
 - 12 Eagle Rock Crescent, Bernardino Heights, Cape Town

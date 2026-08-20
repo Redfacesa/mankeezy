@@ -11,7 +11,7 @@ export default function HeroSection() {
           </div>
           <div className="hero-badges">
             <span className="sticker">AUG 18 · Album drop</span>
-            <span className="sticker">SAT 23 · Braai</span>
+            <span className="sticker">SAT 22 · Braai</span>
           </div>
         </div>
 
