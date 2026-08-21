@@ -20,7 +20,7 @@ export const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
 export const EVENT = {
   albumDrop: '18 August 2026',
-  partyDate: 'Saturday, 22 August 2026',
+  partyDate: 'Saturday 22 August 2026 · 5pm till late',
   venue: '12 Eagle Rock Crescent',
   suburb: 'Bernardino Heights, Cape Town',
   minContribution: 100,

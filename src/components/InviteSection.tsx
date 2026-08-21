@@ -8,7 +8,7 @@ export default function InviteSection() {
         <span className="invite-banner-tag">Exclusive · Limited spots</span>
         <h2 className="invite-banner-title">Birthday braai RSVP</h2>
         <p className="invite-banner-sub">
-          Saturday 22 August · Bernardino Heights · Friends and family only
+          Saturday 22 August · 5pm till late · Bernardino Heights · Friends and family only
         </p>
       </div>
 
